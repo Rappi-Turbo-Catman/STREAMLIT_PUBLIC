@@ -14,7 +14,7 @@ def load_data_super():
     métrica principal es TOTAL_PRICE_USD_SUPER.
     """
     #file_path = "./WorkShop Carulla - Alt/New - Workshop - Super.csv"
-    url = "https://raw.githubusercontent.com/Rappi-Turbo-Catman/STREAMLIT_PUBLIC/refs/heads/main/WorkShop%20Carulla%20-%20Alt/New%20-%20Workshop%20-%20Super.csv"
+    url = "https://raw.githubusercontent.com/Rappi-Turbo-Catman/STREAMLIT_PUBLIC/refs/heads/main/WorkShop/New%20-%20Workshop%20-%20Super.csv"
     df = pd.read_csv(url)
     df["MONTH"] = pd.to_datetime(df["MONTH"])
     df["YEAR"] = df["MONTH"].dt.year
@@ -22,7 +22,7 @@ def load_data_super():
 
 def load_data_carulla():
     # file_path = "./WorkShop Carulla - Alt/New - Workshop - Carulla.csv"
-    url = "https://raw.githubusercontent.com/Rappi-Turbo-Catman/STREAMLIT_PUBLIC/refs/heads/main/WorkShop%20Carulla%20-%20Alt/New%20-%20Workshop%20-%20Carulla.csv"
+    url = "https://raw.githubusercontent.com/Rappi-Turbo-Catman/STREAMLIT_PUBLIC/refs/heads/main/WorkShop/New%20-%20Workshop%20-%20Carulla.csv"
     df = pd.read_csv(url)
     df["MONTH"] = pd.to_datetime(df["MONTH"])
     df["YEAR"] = df["MONTH"].dt.year
