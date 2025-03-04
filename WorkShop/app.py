@@ -392,16 +392,21 @@ with tabs[1]:
 
 
 with tabs[2]:
+
+    df_filtered_carulla2 = df_carulla[df_carulla["CAT"].isin(selected_cats_carulla)]
+
+    
+    df_filtered_carulla2 = df_filtered_carulla2[df_filtered_carulla2["YEAR"].isin(selected_years_carulla)]
     
     # 1. Carga de datos a nivel de zona
-    df_zone_monthly = df_super.groupby(["MONTH", "ZONA"], as_index=False)["TOTAL_PRICE_USD_TURBO"].sum()
+    df_zone_monthly = df_filtered_carulla2.groupby(["MONTH", "ZONA"], as_index=False)["TOTAL_PRICE_USD_TURBO"].sum()
 
     # 2. Calcular variacion mensual por zona
     df_zone_monthly.sort_values(["ZONA", "MONTH"], inplace=True)
     df_zone_monthly["VARIACION_ZONA"] = df_zone_monthly.groupby("ZONA")["TOTAL_PRICE_USD_TURBO"].diff().fillna(0)
 
     # 3. Calcular variacion mensual total
-    df_total_zone = df_super.groupby("MONTH", as_index=False)["TOTAL_PRICE_USD_TURBO"].sum()
+    df_total_zone = df_filtered_carulla2.groupby("MONTH", as_index=False)["TOTAL_PRICE_USD_TURBO"].sum()
     df_total_zone.rename(columns={"TOTAL_PRICE_USD_TURBO": "TOTAL_PRICE_TURBO"}, inplace=True)
     df_total_zone["VARIACION_TOTAL"] = df_total_zone["TOTAL_PRICE_TURBO"].diff().fillna(0)
 
