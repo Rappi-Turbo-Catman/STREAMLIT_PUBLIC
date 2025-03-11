@@ -388,7 +388,7 @@ with tabs[1]:
     fig_carulla_4.update_layout(width=900, height=700)
     st.plotly_chart(fig_carulla_4, use_container_width=True)
 
-    # TODO: Convert lower part into another tab
+
 
 
 with tabs[2]:
